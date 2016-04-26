@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var intensity: UISlider!
     
+    var currentImage: UIImage!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
