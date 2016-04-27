@@ -23,6 +23,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         title = "YACIFP"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "importPicture")
+        
+        context = CIContext(options: nil)
+        currentFilter = CIFilter(name: "CISepiaTone")
     }
 
     override func didReceiveMemoryWarning() {
