@@ -27,6 +27,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        var newImage: UIImage
+        
+        if let possibleImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
+            newImage = possibleImage
+        } else if let possibleImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            newImage = possibleImage
+        } else {
+            return
+        }
+        dismissViewControllerAnimated(true, completion: nil)
+        
+        currentImage = newImage
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 
     @IBAction func changeFilter(sender: AnyObject) {
     }
