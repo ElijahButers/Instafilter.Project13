@@ -65,6 +65,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let processedImage = UIImage(CGImage: cgimg)
         imageView.image = processedImage
     }
+    
+    func setFilter(action: UIAlertAction!) {
+        
+        currentFilter = CIFilter(name: action.title!)
+        let beginImage = CIImage(image: currentImage)
+        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
+        applyProcessing()
+    }
 
     @IBAction func changeFilter(sender: AnyObject) {
         
