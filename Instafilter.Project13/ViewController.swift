@@ -57,6 +57,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    func applyProcessing() {
+        
+        currentFilter.setValue(intensity.value, forKey: kCIInputIntensityKey)
+        let cgimg = context.createCGImage(currentFilter.outputImage!, fromRect: currentFilter.outputImage!.extent)
+        let processedImage = UIImage(CGImage: cgimg)
+        imageView.image = processedImage
+    }
 
     @IBAction func changeFilter(sender: AnyObject) {
     }
@@ -65,6 +73,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func intensityChanged(sender: AnyObject) {
+        
+        applyProcessing()
     }
 }
 
