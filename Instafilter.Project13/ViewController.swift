@@ -102,6 +102,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     @IBAction func save(sender: AnyObject) {
+        
+            UIImageWriteToSavedPhotosAlbum(imageView.image!, self, "image:didFinishSavingWithError:contextInfo:", nil)
     }
     
     @IBAction func intensityChanged(sender: AnyObject) {
